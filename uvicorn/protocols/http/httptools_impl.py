@@ -238,7 +238,7 @@ class HttpToolsProtocol(asyncio.Protocol):
             "raw_path": raw_path,
             "query_string": parsed_url.query if parsed_url.query else b"",
             "headers": self.headers,
-            'request_start_time': time.monotonic(),
+            "request_start_time": time.monotonic(),
         }
 
     def on_header(self, name: bytes, value: bytes):
@@ -551,7 +551,7 @@ class RequestResponseCycle:
                 if self.expected_content_length != 0:
                     raise RuntimeError("Response content shorter than Content-Length")
                 self.response_complete = True
-                self.scope['response_end_time'] = time.monotonic()
+                self.scope["response_end_time"] = time.monotonic()
 
                 if self.gunicorn_log is not None:
                     try:

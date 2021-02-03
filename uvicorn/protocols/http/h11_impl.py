@@ -210,7 +210,7 @@ class H11Protocol(asyncio.Protocol):
                     "raw_path": raw_path,
                     "query_string": query_string,
                     "headers": self.headers,
-                    "request_start_time": time.monotonic()
+                    "request_start_time": time.monotonic(),
                 }
 
                 for name, value in self.headers:
