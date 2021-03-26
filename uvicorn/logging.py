@@ -249,17 +249,11 @@ class GunicornSafeAtoms(abc.Mapping):
 
     @_register_handler("f")
     def referer(self, *args, **kwargs):
-        val = self.request_headers.get(b"referer")
-        if val is None:
-            return None
-        return val.decode("ascii")
+        return self.request_headers.get("referer")
 
     @_register_handler("a")
     def user_agent(self, *args, **kwargs):
-        val = self.request_headers.get(b"user-agent")
-        if val is None:
-            return None
-        return val.decode("ascii")
+        return self.request_headers.get("user-agent")
 
     @_register_handler("T")
     def request_time_seconds(self, *args, **kwargs):
