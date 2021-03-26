@@ -156,6 +156,7 @@ class Config:
         ssl_ciphers="TLSv1",
         headers=None,
         factory=False,
+        gunicorn_log=None,
     ):
         self.app = app
         self.host = host
@@ -193,6 +194,8 @@ class Config:
         self.headers = headers if headers else []  # type: List[str]
         self.encoded_headers = None  # type: List[Tuple[bytes, bytes]]
         self.factory = factory
+
+        self.gunicorn_log = gunicorn_log
 
         self.loaded = False
         self.configure_logging()
